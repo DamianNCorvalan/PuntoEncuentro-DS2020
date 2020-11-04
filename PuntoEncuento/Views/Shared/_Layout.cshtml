@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />*@
+    @Styles.Render("~/Content/fontawesome-all.css")
+
+</head>
+<body class="fondoPagina">
+    <div class="medioCirculo"></div>
+    <nav class="navbar navbar-expand-md barraNav navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <img class="Logo" src="~/Content/Imagenes/logoPE.png" alt="Logo" />
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item ml-5"><a class="nav-link">@Html.ActionLink("Inicio", "Index", "Home")</a></li>
+                <li class="nav-item ml-5"><a class="nav-link">@Html.ActionLink("Mi Perfil", "About", "Home")</a></li>
+                <li class="nav-item ml-5"><a class="nav-link">@Html.ActionLink("Mis Equipos", "Contact", "Home")</a></li>
+                <li class="nav-item ml-5"><a class="nav-link">@Html.ActionLink("Mis Reservas", "Contact", "Home")</a></li>
+                <li class="nav-item ml-5"><a href="~/Account/Login" ></a></li>
+
+                <!--Logo-->
+                <li class="d-none d-md-block"><img class="Logo" src="~/Content/Imagenes/logoPE.png" alt="Logo" /></li>
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </div>
+    </nav>
+    <div class="container body-content">
+        <div class="ml-4">
+            @RenderBody()
+        </div>
+        <hr />
+        <footer>
+            <p>Punto Encuentro... Tu lugar de encuentro con amigos!!!</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
