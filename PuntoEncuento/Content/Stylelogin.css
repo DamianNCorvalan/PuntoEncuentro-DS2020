@@ -126,10 +126,11 @@ h1 {
 .postitulo2 {
     
     position: absolute;
-    top: 850px;
+    top: 250px;
     text-align: left;
     margin-right:50%;
     align-content: center;
+    margin-top:650px;
     
 }
 .posicioncancha {
