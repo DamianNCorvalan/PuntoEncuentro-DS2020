@@ -17,11 +17,13 @@
 <body class="glyphicon-blackboard">
     <h1 class="text-center text-justify">Punto Encuentro</h1>
     <div class="medioCirculo"></div>
-    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-        @RenderSection("scripts", required: false)
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-    }
+    <div class="adelante">
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+            @RenderSection("scripts", required: false)
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+        }
+    </div>
 </body>

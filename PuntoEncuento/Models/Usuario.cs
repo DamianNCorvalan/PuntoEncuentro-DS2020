@@ -32,7 +32,14 @@ namespace PuntoEncuento
 
         public byte[] ImagenUsuario { get; set; }
 
+        [Required]
         public int IdDomicilio { get; set; }
+        [NotMapped]
+        public int IdLocalidad { get; set; }
+        [NotMapped]
+        public int IdPartido { get; set; }
+        [NotMapped]
+        public int IdProvincia { get; set; }
 
         [Required]
         [StringLength(200)]
