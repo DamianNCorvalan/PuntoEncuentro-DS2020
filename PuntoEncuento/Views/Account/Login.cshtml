@@ -1,0 +1,27 @@
+﻿@using PuntoEncuento.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/Stylelogin.css")
+@Scripts.Render("~/bundles/modernizr")
+
+<h2>@ViewBag.Title.</h2>
+
+
+<body class="glyphicon-blackboard">
+    <h1 class="text-center text-justify">Punto Encuentro</h1>
+    <div class="medioCirculo"></div>
+    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    }
+</body>
