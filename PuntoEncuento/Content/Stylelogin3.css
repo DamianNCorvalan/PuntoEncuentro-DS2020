@@ -4,7 +4,7 @@
     max-width: 100vw;
 }
 @media (min-width: 120px) {
-    .medioCirculo {
+    .medioCirculo1 {
         border-radius: 60% 60% 60% 60%;
         position: absolute;
         width: 688px;
@@ -18,33 +18,51 @@
     .medioCirculo2 {
         border-radius: 60% 60% 60% 60%;
         position: absolute;
+        width: 688px;
         height: 820px;
         right: 0%;
-        top: 100%;
+        top: 600px;
         background: linear-gradient(45.37deg, #C5C904 8.28%, #FCFF58 65.61%);
         overflow: hidden;
+        z-index: 0;
     }
 }
 
 @media (min-width: 768px) {
-    .medioCirculo {
+    .medioCirculo1 {
         width: 688px;
         height: 704px;     
+    }
+    .medioCirculo2 {
+        width: 688px;
+        height: 704px;
     }
 }
 
 @media (min-width: 992px) {
-    .medioCirculo {
+    .medioCirculo1 {
+        width: 788px;
+        height: 804px;
+    }
+    .medioCirculo2 {
         width: 788px;
         height: 804px;
     }
 }
 
 @media (min-width: 1200px) {
-    .medioCirculo {
+    .medioCirculo1 {
         width: 888px;
         height: 904px;
     }
+    .medioCirculo2 {
+        width: 888px;
+        height: 904px;
+    }
+}
+
+.enviaralfrente {
+    z-index: 2;
 }
 
 img {
