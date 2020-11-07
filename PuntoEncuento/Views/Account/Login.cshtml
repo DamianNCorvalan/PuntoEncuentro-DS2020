@@ -1,29 +1,77 @@
 ﻿@using PuntoEncuento.Models
 @model LoginViewModel
-@{
-    ViewBag.Title = "Iniciar sesión";
-}
-@{
-    Layout = null;
-}
+@{ ViewBag.Title = ""; }
+@{ Layout = null; }
 
 @Styles.Render("~/Content/css")
-@Styles.Render("~/Content/Stylelogin.css")
+@Styles.Render("~/Content/Stylelogin2.css")
 @Scripts.Render("~/bundles/modernizr")
 
-<h2>@ViewBag.Title.</h2>
-
+@*<h2>@ViewBag.Title.</h2>*@
+@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
 
 <body class="glyphicon-blackboard">
-    <h1 class="text-center text-justify">Punto Encuentro</h1>
-    <div class="medioCirculo"></div>
-    <div class="adelante">
-        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-            @RenderSection("scripts", required: false)
-            @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-        }
+    <div class="medioCirculo1"></div>
+    <div class="medioCirculo2"></div>
+    <div class="enviaralfrente">
+        <div class="pfutbol">
+            <img class="img-responsive  pfutbol" src="~/Imagenes/pfutbol.png" alt="pbasquet" width="460" height="365" />
+        </div>
+        <div class="ftitulo1">
+            <h1 class="text-center text-justify">Punto Encuentro</h1>
+            <div>
+                <img class="img-responsive  center-block" src="~/Imagenes/pbasquet.png" alt="pbasquet" width="460" height="365" />
+            </div>
+        </div>
+        <div class="ftitulo2">
+            <img class="img-responsive posicioncancha" src="~/Imagenes/fcancha.png" alt="fcancha" width="900" height="850" />
+            <p class="postitulo2"> Busca tu cancha al Instante</p>
+        </div>
+        <div class="row">
+            <div class="ftitulo3">
+                <p> Reserva tu cancha en 3 pasos</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Busca cancha o Equipo</h2>
+                <p>
+                    Deja de llamar por teléfono! Encontra la disponibilidad de tus canchas preferidas o cercanas.
+                    Tambien podes buscar equipos disponibles.
+                </p>
+                @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+            </div>
+
+
+            <div class="col-md-4">
+                <h2>Reservá</h2>
+                <p>Tenés toda la información para hacer tu reserva instantánea, sin pagar nada por adelantado! Reservando en el momento.</p>
+                @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+            </div>
+
+
+            <div class="col-md-4">
+                <h2>Jugá</h2>
+                <p>Nosotros nos ocupamos de la reserva, vos juga tranquilo y después pagas en el club.</p>
+                @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+            </div>
+        </div>
+        <div>
+            <img class="img-responsive" src="~/Imagenes/jugadores.png" />
+            <br />
+
+        </div>
+
+        <div class="ftitulo4">
+            <p> Busca Canchas por tu Zona</p>
+            <iframe class="img-responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.6524604158963!2d-58.52533128543843!3d-34.789523480411816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd03b1500e073%3A0x5d9d510150cbf7da!2sUniversidad%20Provincial%20De%20Ezeiza!5e0!3m2!1ses-419!2sar!4v1602442135867!5m2!1ses-419!2sar"
+                    width="1300" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+            </iframe>
+        </div>
     </div>
 </body>
