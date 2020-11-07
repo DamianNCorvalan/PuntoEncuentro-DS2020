@@ -234,7 +234,7 @@
     <Content Include="Content\regular.min.css" />
     <Content Include="Content\solid.css" />
     <Content Include="Content\solid.min.css" />
-    <Content Include="Content\Stylelogin2.css" />
+    <Content Include="Content\Stylelogin.css" />
     <Content Include="Content\svg-with-js.css" />
     <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\v4-shims.css" />
@@ -261,6 +261,8 @@
     <Content Include="imagenes\jtenis4.png" />
     <Content Include="imagenes\jugadores.png" />
     <Content Include="imagenes\jvoley.png" />
+    <Content Include="imagenes\LogoFB.jpg" />
+    <Content Include="imagenes\LogoGoogle.png" />
     <Content Include="imagenes\pbasquet.png" />
     <Content Include="imagenes\pfutbol.png" />
     <Content Include="imagenes\pfutbol1 %281%29.png" />

@@ -124,4 +124,3 @@ C:\Users\Usuario\source\repos\PuntoEncuentoSolucion\PuntoEncuento\obj\Debug\Punt
 C:\Users\Usuario\source\repos\PuntoEncuentoSolucion\PuntoEncuento\obj\Debug\PuntoEncuento.csproj.CopyComplete
 C:\Users\Usuario\source\repos\PuntoEncuentoSolucion\PuntoEncuento\obj\Debug\PuntoEncuento.dll
 C:\Users\Usuario\source\repos\PuntoEncuentoSolucion\PuntoEncuento\obj\Debug\PuntoEncuento.pdb
-C:\Users\Usuario\source\repos\PuntoEncuentoSolucion\PuntoEncuento\obj\Debug\PuntoEncuento.csprojAssemblyReference.cache
