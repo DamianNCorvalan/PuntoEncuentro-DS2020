@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PuntoEncuento.Models
 {
@@ -8,6 +9,9 @@ namespace PuntoEncuento.Models
         [Required]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
+
+        [NotMapped]
+        public Usuario Usuario { get; set; }
     }
 
     public class ExternalLoginListViewModel

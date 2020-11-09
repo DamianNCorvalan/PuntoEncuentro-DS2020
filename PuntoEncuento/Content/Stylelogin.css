@@ -65,24 +65,49 @@
     z-index: 2;
 }
 
+.LoginButton {
+    width: 160px;
+    height: 46px;
+    background: rgba(66,0,255,1);
+    opacity: 1;
+    position:relative;
+    overflow: hidden;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    color: #ffff;
+}
+
 .logoFB {
-    background-image: url("../imagenes/LogoFB.jpg");
-    width: 100px; /* Definir de acuerdo al ancho de la imagen */
-    height: 92px; /* Definir de acuerdo al alto de la imagen */
-    right: 0%;
-    top: 200px;
+    background-image: url("../imagenes/LogoFB.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 72px;
+    height: 46px;
+    position: relative;
+    top: 10%;
+    left: 0%;
     z-index: 3;
 }
 
 .logoGoogle {
     background-image: url("../imagenes/LogoGoogle.png");
-    width: 100px; /* Definir de acuerdo al ancho de la imagen */
-    height: 92px; /* Definir de acuerdo al alto de la imagen */
-    right: 0%;
-    top: 200px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 72px;
+    height: 46px;
+    position: relative;
+    top: 10%;
+    left: 0%;
     z-index: 3;
 }
 
+.margen{
+    margin: 2px;
+}
 
 img {
     display: block;

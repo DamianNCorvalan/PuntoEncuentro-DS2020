@@ -1,10 +1,8 @@
 namespace PuntoEncuento
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Usuario")]
     public partial class Usuario
@@ -28,6 +26,7 @@ namespace PuntoEncuento
         [StringLength(30)]
         public string Apellido { get; set; }
 
+        [NotMapped]
         public int IdRol { get; set; }
 
         public byte[] ImagenUsuario { get; set; }

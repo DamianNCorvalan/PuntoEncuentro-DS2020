@@ -1,14 +1,11 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PuntoEncuento.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 namespace PuntoEncuento.Controllers
 {
     [Authorize]
@@ -16,12 +13,13 @@ namespace PuntoEncuento.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private PuntoEncuentroDataContext db = new PuntoEncuentroDataContext();
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -33,9 +31,9 @@ namespace PuntoEncuento.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -119,7 +117,7 @@ namespace PuntoEncuento.Controllers
             // Si un usuario introduce códigos incorrectos durante un intervalo especificado de tiempo, la cuenta del usuario 
             // se bloqueará durante un período de tiempo especificado. 
             // Puede configurar el bloqueo de la cuenta en IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -154,8 +152,8 @@ namespace PuntoEncuento.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -342,7 +340,8 @@ namespace PuntoEncuento.Controllers
                     // Si el usuario no tiene ninguna cuenta, solicitar que cree una
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    ViewBag.Provincia = db.Provincia;
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, Usuario = new Usuario { CorreoElectronico = loginInfo.Email } });
             }
         }
 
@@ -351,7 +350,7 @@ namespace PuntoEncuento.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, [Bind(Include = "IdUsuario,Nombre,Apellido,IdRol,ImagenUsuario,Domicilio,IdLocalidad,IdPartido,IdProvincia,CorreoElectronico")] Usuario Usuario, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -370,6 +369,35 @@ namespace PuntoEncuento.Controllers
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    Usuario usuario = new Usuario();
+                    usuario.Nombre = Usuario.Nombre;
+                    usuario.Apellido = Usuario.Apellido;
+                    usuario.Domicilio = new Domicilio { Altura = Usuario.Domicilio.Altura, Calle = Usuario.Domicilio.Calle, CodigoPostal = Usuario.Domicilio.CodigoPostal };
+                    usuario.Domicilio.Localidad = db.Localidad.FirstOrDefault(x => x.IdLocalidad == Usuario.IdLocalidad);
+                    usuario.Domicilio.Localidad.Partido = db.Partido.FirstOrDefault(x => x.IdPartido == Usuario.IdPartido);
+                    usuario.Domicilio.Localidad.Partido.Provincia = db.Provincia.FirstOrDefault(x => x.IdProvincia == Usuario.IdProvincia);
+                    usuario.Rol = db.Rol.FirstOrDefault(x => x.IdRol == Usuario.IdRol);
+                    //if (file != null && file.ContentLength > 0)
+                    //    try
+                    //    {
+                    //        Stream InputStream = file.InputStream; // Get the input value from the file/other source
+                    //        byte[] result;
+                    //        using (var streamReader = new MemoryStream())
+                    //        {
+                    //            InputStream.CopyTo(streamReader);
+                    //            result = streamReader.ToArray();
+                    //        }
+                    //        usuario.ImagenUsuario = result;
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        //ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    //    }
+
+                    db.Usuario.Add(usuario);
+                    db.SaveChanges();
+
+
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {

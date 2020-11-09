@@ -166,6 +166,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LocalidadController.cs" />
+    <Compile Include="Controllers\PartidoController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -261,8 +263,6 @@
     <Content Include="imagenes\jtenis4.png" />
     <Content Include="imagenes\jugadores.png" />
     <Content Include="imagenes\jvoley.png" />
-    <Content Include="imagenes\LogoFB.jpg" />
-    <Content Include="imagenes\LogoGoogle.png" />
     <Content Include="imagenes\pbasquet.png" />
     <Content Include="imagenes\pfutbol.png" />
     <Content Include="imagenes\pfutbol1 %281%29.png" />
@@ -277,6 +277,8 @@
     <Content Include="imagenes\prugby.png" />
     <Content Include="imagenes\ptenis.png" />
     <Content Include="imagenes\pvoley.png" />
+    <Content Include="imagenes\LogoGoogle.png" />
+    <Content Include="imagenes\LogoFB.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -460,9 +462,12 @@
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Localidad\" />
+    <Folder Include="Views\Partido\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
