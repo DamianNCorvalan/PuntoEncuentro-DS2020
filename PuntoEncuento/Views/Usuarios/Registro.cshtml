@@ -12,7 +12,9 @@
                     success: function (data) {
                         $('#IdPartido').empty();
                         for (i = 0, j = data.length; i < j; i++) {
-                            $('#IdPartido').append('<option value="' + data[i].IdPartido+'">' + data[i].Nombre + '</option>');
+                            $('#IdPartido').append('<option value="' + data[i].IdPartido + '">' + data[i].Nombre + '</option>');
+                            $('#IdPartido').val('');
+                            $('#IdPartido').trigger('change');
                         }
                     }
                 });
@@ -28,6 +30,8 @@
                         $('#IdLocalidad').empty();
                         for (i = 0, j = data.length; i < j; i++) {
                             $('#IdLocalidad').append('<option value="' + data[i].IdLocalidad + '">' + data[i].Nombre + '</option>');
+                            $('#IdLocalidad').val('');
+                            $('#IdLocalidad').trigger('change');
                         }
                     }
                 });
@@ -68,7 +72,6 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ImagenUsuario, "IMAGEN:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @*@Html.EditorFor(model => model.ImagenUsuario, new { htmlAttributes = new { @class = "form-control" } })*@
             <input type="file" name="file" />
             @Html.ValidationMessageFor(model => model.ImagenUsuario, "", new { @class = "text-danger" })
         </div>
@@ -77,7 +80,6 @@
     <div class="form-group">
         @Html.LabelFor(model => model.IdDomicilio, "DIRECCIÓN:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @*@Html.DropDownList("IdDomicio", null, htmlAttributes: new { @class = "form-control" })*@
             @Html.TextBoxFor(model => model.Domicilio.Calle, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Domicilio.Calle, "", new { @class = "text-danger" })
         </div>
@@ -86,7 +88,6 @@
     <div class="form-group">
         @Html.LabelFor(model => model.IdDomicilio, "ALTURA:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @*@Html.DropDownList("IdDomicio", null, htmlAttributes: new { @class = "form-control" })*@
             @Html.TextBoxFor(model => model.Domicilio.Altura, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Domicilio.Altura, "", new { @class = "text-danger" })
         </div>
@@ -95,7 +96,6 @@
     <div class="form-group">
         @Html.LabelFor(model => model.IdDomicilio, "CODIGO POSTAL:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @*@Html.DropDownList("IdDomicio", null, htmlAttributes: new { @class = "form-control" })*@
             @Html.TextBoxFor(model => model.Domicilio.CodigoPostal, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Domicilio.CodigoPostal, "", new { @class = "text-danger" })
         </div>
@@ -105,7 +105,6 @@
         @Html.LabelFor(model => model.IdDomicilio, "PROVINCIA:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.IdProvincia, new SelectList(ViewBag.Provincia, "IdProvincia", "Nombre", null), null, htmlAttributes: new { @class = "form-control" })
-            @*@Html.TextBoxFor(model => model.Domicilio.CodigoPostal, htmlAttributes: new { @class = "form-control" })*@
             @Html.ValidationMessageFor(model => model.IdDomicilio, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -114,7 +113,6 @@
         @Html.LabelFor(model => model.IdDomicilio, "PARTIDO:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.IdPartido, new SelectList(new Dictionary<int,object>()), null, htmlAttributes: new { @class = "form-control" })
-            @*@Html.TextBoxFor(model => model.Domicilio.CodigoPostal, htmlAttributes: new { @class = "form-control" })*@
             @Html.ValidationMessageFor(model => model.IdDomicilio, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -123,7 +121,6 @@
         @Html.LabelFor(model => model.IdDomicilio, "LOCALIDAD:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.IdLocalidad, new SelectList(new Dictionary<int, object>()), null, htmlAttributes: new { @class = "form-control" })
-            @*@Html.TextBoxFor(model => model.Domicilio.CodigoPostal, htmlAttributes: new { @class = "form-control" })*@
             @Html.ValidationMessageFor(model => model.IdDomicilio, "", new { @class = "text-danger" })
         </div>
     </div>
