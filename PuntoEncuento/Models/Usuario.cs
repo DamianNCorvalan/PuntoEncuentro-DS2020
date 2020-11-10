@@ -28,7 +28,6 @@ namespace PuntoEncuento
         [StringLength(30)]
         public string Apellido { get; set; }
 
-        [NotMapped]
         public int IdRol { get; set; }
 
         public byte[] ImagenUsuario { get; set; }
@@ -53,7 +52,7 @@ namespace PuntoEncuento
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jugador> Jugador { get; set; }
-
+        //[ForeignKey("IdRol")]
         public virtual Rol Rol { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

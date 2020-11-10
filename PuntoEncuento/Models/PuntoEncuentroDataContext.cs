@@ -295,6 +295,7 @@ namespace PuntoEncuento
                 .HasMany(e => e.Usuario_Calificacion)
                 .WithRequired(e => e.Usuario)
                 .WillCascadeOnDelete(false);
+
         }
     }
 }
