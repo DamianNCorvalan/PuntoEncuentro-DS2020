@@ -166,6 +166,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DuenoesController.cs" />
+    <Compile Include="Controllers\JugadorsController.cs" />
     <Compile Include="Controllers\LocalidadController.cs" />
     <Compile Include="Controllers\PartidoController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -231,6 +233,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\brands.css" />
     <Content Include="Content\brands.min.css" />
+    <Content Include="Content\Dueno.css" />
     <Content Include="Content\fontawesome-all.css" />
     <Content Include="Content\fontawesome-all.min.css" />
     <Content Include="Content\fontawesome.css" />
@@ -468,6 +471,16 @@
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Registro.cshtml" />
+    <Content Include="Views\Jugadors\Create.cshtml" />
+    <Content Include="Views\Jugadors\Delete.cshtml" />
+    <Content Include="Views\Jugadors\Details.cshtml" />
+    <Content Include="Views\Jugadors\Edit.cshtml" />
+    <Content Include="Views\Jugadors\Index.cshtml" />
+    <Content Include="Views\Duenoes\Create.cshtml" />
+    <Content Include="Views\Duenoes\Delete.cshtml" />
+    <Content Include="Views\Duenoes\Details.cshtml" />
+    <Content Include="Views\Duenoes\Edit.cshtml" />
+    <Content Include="Views\Duenoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
