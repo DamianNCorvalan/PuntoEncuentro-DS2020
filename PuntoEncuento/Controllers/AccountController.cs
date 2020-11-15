@@ -2,12 +2,15 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PuntoEncuento.Models;
+using System;
 using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+
 namespace PuntoEncuento.Controllers
 {
     [Authorize]
@@ -352,7 +355,7 @@ namespace PuntoEncuento.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, [Bind(Include = "IdUsuario,Nombre,Apellido,IdRol,ImagenUsuario,Domicilio,IdLocalidad,IdPartido,IdProvincia,CorreoElectronico")] Usuario Usuario, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, [Bind(Include = "IdUsuario,Nombre,Apellido,IdRol,ImagenUsuario,Domicilio,IdLocalidad,IdPartido,IdProvincia,CorreoElectronico")] Usuario Usuario, string returnUrl, HttpPostedFileBase file)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -369,7 +372,7 @@ namespace PuntoEncuento.Controllers
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
-                if (result.Succeeded)
+                if (ModelState.IsValid)
                 {
                     Usuario usuario = new Usuario();
                     usuario.Nombre = Usuario.Nombre;
@@ -380,22 +383,24 @@ namespace PuntoEncuento.Controllers
                     usuario.Domicilio.Localidad.Partido.Provincia = db.Provincia.FirstOrDefault(x => x.IdProvincia == Usuario.IdProvincia);
                     usuario.Rol = db.Rol.FirstOrDefault(x => x.IdRol == Usuario.IdRol);
                     usuario.CorreoElectronico = model.Email;
-                    //if (file != null && file.ContentLength > 0)
-                    //    try
-                    //    {
-                    //        Stream InputStream = file.InputStream; // Get the input value from the file/other source
-                    //        byte[] result;
-                    //        using (var streamReader = new MemoryStream())
-                    //        {
-                    //            InputStream.CopyTo(streamReader);
-                    //            result = streamReader.ToArray();
-                    //        }
-                    //        usuario.ImagenUsuario = result;
-                    //    }
-                    //    catch (Exception ex)
-                    //    {
-                    //        //ViewBag.Message = "ERROR:" + ex.Message.ToString();
-                    //    }
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        try
+                        {
+                            Stream InputStream = file.InputStream;
+                            byte[] result1;
+                            using (var streamReader = new MemoryStream())
+                            {
+                                InputStream.CopyTo(streamReader);
+                                result1 = streamReader.ToArray();
+                            }
+                            usuario.ImagenUsuario = result1;
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                        }
+                    }
                     db.Usuario.Add(usuario);
                     //db.SaveChanges();
                     try

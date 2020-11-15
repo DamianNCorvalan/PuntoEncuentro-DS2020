@@ -29,7 +29,7 @@ namespace PuntoEncuento
         public string Apellido { get; set; }
 
         public int IdRol { get; set; }
-
+        [Display(Name = "Imagen de perfil")]
         public byte[] ImagenUsuario { get; set; }
 
         [Required]

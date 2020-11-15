@@ -90,8 +90,8 @@ namespace PuntoEncuento.Controllers
             return View(usuario);
         }
 
-        // GET: Usuarios/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Usuarios/perfil/5
+        public ActionResult perfil(int? id)
         {
             if (id == null)
             {
@@ -104,15 +104,18 @@ namespace PuntoEncuento.Controllers
             }
             ViewBag.IdDomicilio = new SelectList(db.Domicilio, "IdDomicilio", "Calle", usuario.IdDomicilio);
             ViewBag.IdRol = new SelectList(db.Rol, "IdRol", "Nombre", usuario.IdRol);
+            ViewBag.Localidad = db.Localidad;
+            ViewBag.Partido = db.Partido;
+            ViewBag.Provincia = db.Provincia;
             return View(usuario);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: Usuarios/perfil/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdUsuario,Nombre,Apellido,IdRol,ImagenUsuario,IdDomicilio,CorreoElectronico")] Usuario usuario)
+        public ActionResult perfil([Bind(Include = "IdUsuario,Nombre,Apellido,IdRol,ImagenUsuario,IdDomicilio,CorreoElectronico")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

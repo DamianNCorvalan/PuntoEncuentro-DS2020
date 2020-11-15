@@ -49,13 +49,13 @@
         </td>
         <td>
             @*@Html.DisplayFor(modelItem => item.ImagenUsuario)*@
-            <image width="320px" height="240px" src="data:image/png;base64,@Convert.ToBase64String(item.ImagenUsuario,0,item.ImagenUsuario.Length)" />
+            <image width="280px" height="240px" src="data:image/png;base64,@Convert.ToBase64String(item.ImagenUsuario,0,item.ImagenUsuario.Length)" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CorreoElectronico)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdUsuario }) |
+            @Html.ActionLink("Perfil", "Perfil", new { id=item.IdUsuario }) |
             @Html.ActionLink("Details", "Details", new { id=item.IdUsuario }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.IdUsuario })
         </td>

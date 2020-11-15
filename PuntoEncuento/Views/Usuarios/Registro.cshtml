@@ -1,52 +1,12 @@
 ﻿@model PuntoEncuento.Usuario
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#IdProvincia').val('');
-        $('#IdProvincia').trigger('change');
-        $('#IdProvincia').change(function () {
-            if ($(this).val()) {
-                $.ajax({
-                    url: '../Partido/Details?id=' + $(this).val(),
-                    method: 'GET',
-                    success: function (data) {
-                        $('#IdPartido').empty();
-                        for (i = 0, j = data.length; i < j; i++) {
-                            $('#IdPartido').append('<option value="' + data[i].IdPartido + '">' + data[i].Nombre + '</option>');
-                            $('#IdPartido').val('');
-                            $('#IdPartido').trigger('change');
-                        }
-                    }
-                });
-            }
-        });
-
-        $('#IdPartido').change(function () {
-            if ($(this).val()) {
-                $.ajax({
-                    url: '../Localidad/Details?id=' + $(this).val(),
-                    method: 'GET',
-                    success: function (data) {
-                        $('#IdLocalidad').empty();
-                        for (i = 0, j = data.length; i < j; i++) {
-                            $('#IdLocalidad').append('<option value="' + data[i].IdLocalidad + '">' + data[i].Nombre + '</option>');
-                            $('#IdLocalidad').val('');
-                            $('#IdLocalidad').trigger('change');
-                        }
-                    }
-                });
-            }
-        });
-
-    });
-</script>
+@Scripts.Render("~/Scripts/domicilio.js")
 
 <div class="form-horizontal">
     <h4>Usuario</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @*@Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })*@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ingrese su nombre" } })
             @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
@@ -54,7 +14,6 @@
     </div>
 
     <div class="form-group">
-        @* @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2"})*@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ingrese su apellido" } })
             @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
@@ -62,23 +21,15 @@
     </div>
     @Html.HiddenFor(model => model.IdRol, new { htmlAttributes = new { @class = "form-control" } })
 
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.ImagenUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ImagenUsuario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ImagenUsuario, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
     <div class="form-group">
         @Html.LabelFor(model => model.ImagenUsuario, "Foto de perfil:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input type="file" name="file" />
+            <input type="file" id="file" name="file" />
             @Html.ValidationMessageFor(model => model.ImagenUsuario, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-       @* @Html.LabelFor(model => model.IdDomicilio, "DIRECCIÓN:", htmlAttributes: new { @class = "control-label col-md-2" })*@
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.Domicilio.Calle, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su calle" })
             @Html.ValidationMessageFor(model => model.Domicilio.Calle, "", new { @class = "text-danger" })
@@ -86,7 +37,6 @@
     </div>
 
     <div class="form-group">
-        @*@Html.LabelFor(model => model.IdDomicilio, "ALTURA:", htmlAttributes: new { @class = "control-label col-md-2" })*@
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.Domicilio.Altura, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su altura" })
             @Html.ValidationMessageFor(model => model.Domicilio.Altura, "", new { @class = "text-danger" })
@@ -94,9 +44,9 @@
     </div>
 
     <div class="form-group">
-       @* @Html.LabelFor(model => model.IdDomicilio, "CODIGO POSTAL:", htmlAttributes: new { @class = "control-label col-md-2" })*@
+       
         <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Domicilio.CodigoPostal, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su calle" })
+            @Html.TextBoxFor(model => model.Domicilio.CodigoPostal, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su codigo postal" })
             @Html.ValidationMessageFor(model => model.Domicilio.CodigoPostal, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -110,7 +60,7 @@
     </div>
 
     <div class="form-group">
-        @*@Html.LabelFor(model => model.IdDomicilio, "PARTIDO:", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @Html.LabelFor(model => model.IdDomicilio, "PARTIDO:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.IdPartido, new SelectList(new Dictionary<int, object>()), null, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su partido" })
             @Html.ValidationMessageFor(model => model.IdDomicilio, "", new { @class = "text-danger" })
@@ -125,13 +75,7 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.CorreoElectronico, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CorreoElectronico, "", new { @class = "text-danger" })
-        </div>
-    </div>
+  
     @Html.HiddenFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -139,3 +83,4 @@
         </div>
     </div>
 </div>
+@*}*@
