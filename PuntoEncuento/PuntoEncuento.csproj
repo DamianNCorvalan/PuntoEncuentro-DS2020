@@ -469,6 +469,7 @@
     <Content Include="Views\Usuarios\perfil.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Registro.cshtml" />
+    <Content Include="Views\Shared\_MiPerfilPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

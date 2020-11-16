@@ -1,0 +1,14 @@
+﻿@model PuntoEncuento.Usuario
+@if (Request.IsAuthenticated)
+{
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Perfil", "Perfil", new { id = Model.IdUsuario })
+            </li>
+
+        </ul>
+    }
+}

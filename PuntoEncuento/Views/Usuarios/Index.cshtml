@@ -48,8 +48,14 @@
             @Html.DisplayFor(modelItem => item.Apellido)
         </td>
         <td>
-            @*@Html.DisplayFor(modelItem => item.ImagenUsuario)*@
-            <image width="280px" height="240px" src="data:image/png;base64,@Convert.ToBase64String(item.ImagenUsuario,0,item.ImagenUsuario.Length)" />
+            @if (item.ImagenUsuario != null)
+            { 
+                <image width="240px" height="240px" src="data:image/png;base64,@Convert.ToBase64String(item.ImagenUsuario, 0, item.ImagenUsuario.Length)" />
+            }
+            else
+            {
+                <div class="card col-md-10 m-3" style="height:37px">Sin Imagen</div>
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CorreoElectronico)
