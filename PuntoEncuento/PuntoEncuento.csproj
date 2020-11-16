@@ -166,6 +166,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DuenoesController.cs" />
+    <Compile Include="Controllers\JugadorsController.cs" />
     <Compile Include="Controllers\LocalidadController.cs" />
     <Compile Include="Controllers\PartidoController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
