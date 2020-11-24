@@ -1,0 +1,91 @@
+﻿@model PuntoEncuento.Predio
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("create", "predios", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Predio</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ingrese  el nombre del predio" } })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImagenPredio, "Foto de predio:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" id="file" name="file" />
+            @Html.ValidationMessageFor(model => model.ImagenPredio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Domicilio.Calle, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su calle" })
+            @Html.ValidationMessageFor(model => model.Domicilio.Calle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Domicilio.Altura, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su altura" })
+            @Html.ValidationMessageFor(model => model.Domicilio.Altura, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Domicilio.CodigoPostal, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su codigo postal" })
+            @Html.ValidationMessageFor(model => model.Domicilio.CodigoPostal, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdDomicilio, "PROVINCIA:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.IdProvincia, new SelectList(ViewBag.Provincia, "IdProvincia", "Nombre", null), null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdDomicilio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdDomicilio, "PARTIDO:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.IdPartido, new SelectList(new Dictionary<int, object>()), null, htmlAttributes: new { @class = "form-control", @placeholder = "Ingrese su partido" })
+            @Html.ValidationMessageFor(model => model.IdDomicilio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdDomicilio, "LOCALIDAD:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.IdLocalidad, new SelectList(new Dictionary<int, object>()), null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdDomicilio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

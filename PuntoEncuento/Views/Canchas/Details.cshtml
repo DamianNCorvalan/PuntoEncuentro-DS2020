@@ -1,0 +1,67 @@
+﻿@model PuntoEncuento.Cancha
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cancha</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Predio.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Predio.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suelo.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Suelo.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Techado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Techado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenCancha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagenCancha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TiempoReserva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TiempoReserva)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCancha }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

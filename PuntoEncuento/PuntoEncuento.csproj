@@ -166,8 +166,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CanchasController.cs" />
     <Compile Include="Controllers\LocalidadController.cs" />
     <Compile Include="Controllers\PartidoController.cs" />
+    <Compile Include="Controllers\PrediosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -470,6 +472,16 @@
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Registro.cshtml" />
     <Content Include="Views\Shared\_MiPerfilPartial.cshtml" />
+    <Content Include="Views\Predios\Create.cshtml" />
+    <Content Include="Views\Predios\Delete.cshtml" />
+    <Content Include="Views\Predios\Details.cshtml" />
+    <Content Include="Views\Predios\Edit.cshtml" />
+    <Content Include="Views\Predios\Index.cshtml" />
+    <Content Include="Views\Canchas\Create.cshtml" />
+    <Content Include="Views\Canchas\Delete.cshtml" />
+    <Content Include="Views\Canchas\Details.cshtml" />
+    <Content Include="Views\Canchas\Edit.cshtml" />
+    <Content Include="Views\Canchas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

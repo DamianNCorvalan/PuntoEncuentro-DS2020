@@ -1,0 +1,43 @@
+﻿@model PuntoEncuento.Predio
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Predio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Domicilio.Calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Domicilio.Calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenPredio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagenPredio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPredio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

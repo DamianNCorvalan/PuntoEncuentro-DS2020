@@ -25,7 +25,14 @@ namespace PuntoEncuento
         [Required]
         public byte[] ImagenPredio { get; set; }
 
+        [Required]
         public int IdDomicilio { get; set; }
+        [NotMapped]
+        public int IdLocalidad { get; set; }
+        [NotMapped]
+        public int IdPartido { get; set; }
+        [NotMapped]
+        public int IdProvincia { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cancha> Cancha { get; set; }

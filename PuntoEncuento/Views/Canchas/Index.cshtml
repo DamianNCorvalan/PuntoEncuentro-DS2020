@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PuntoEncuento.Cancha>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Predio.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suelo.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Techado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagenCancha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiempoReserva)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Predio.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suelo.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Techado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImagenCancha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiempoReserva)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCancha }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCancha }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCancha })
+        </td>
+    </tr>
+}
+
+</table>
