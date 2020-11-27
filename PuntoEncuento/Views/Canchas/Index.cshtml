@@ -5,60 +5,201 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@Styles.Render("~/Content/cancha.css")
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<h2>Incio Dueño</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Predio.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Suelo.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Techado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagenCancha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TiempoReserva)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Predio.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Suelo.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Techado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImagenCancha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TiempoReserva)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdCancha }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdCancha }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdCancha })
+                </td>
+            </tr>
+        }
+
+    </table>*@
+
+<!-- PREDIOS EN CARD -->
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card card1">
+            <div class="card-body card1">
+                <h2 class="card-title">Cancha 1</h2>
+                <div class="flex-container">
+                    <div class="flex-item1">
+                        <img src="~/Content/Imagenes/Cancha.png" alt="">
+                    </div>
+                    <div class="flex-item2">
+                        <div class="flex-item3">
+                            <b class="card-text">Predio:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tipo de suelo:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Techado: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tiempo reserva: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Nombre de la cancha:</b>
+                        </div>
+                    </div>
+                    @*<div class="flex-item1">Box 2</div>*@
+                </div>
+                <button type="button" class="btn btn-cancelar">Cancelar</button>
+                <button type="button" class="btn btn-editar">Editar</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Cancha 2</h2>
+                <div class="flex-container">
+                    <div class="flex-item1">
+                        <img src="~/Content/Imagenes/Cancha.png" alt="">
+                    </div>
+                    <div class="flex-item2">
+                        <div class="flex-item3">
+                            <b class="card-text">Predio:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tipo de suelo:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Techado: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tiempo reserva: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Nombre de la cancha:</b>
+                        </div>
+                    </div>
+                    @*<div class="flex-item1">Box 2</div>*@
+                </div>
+                <button type="button" class="btn btn-cancelar">Cancelar</button>
+                <button type="button" class="btn btn-editar">Editar</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card card3">
+            <div class="card-body">
+                <h2 class="card-title">Cancha 3</h2>
+                <div class="flex-container">
+                    <div class="flex-item1">
+                        <img src="~/Content/Imagenes/Cancha.png" alt="">
+                    </div>
+                    <div class="flex-item2">
+                        <div class="flex-item3">
+                            <b class="card-text">Predio:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tipo de suelo:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Techado: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tiempo reserva: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Nombre de la cancha:</b>
+                        </div>
+                    </div>
+                    @*<div class="flex-item1">Box 2</div>*@
+                </div>
+                <button type="button" class="btn btn-cancelar">Cancelar</button>
+                <button type="button" class="btn btn-editar">Editar</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Cancha 4</h2>
+                <div class="flex-container">
+                    <div class="flex-item1">
+                        <img src="~/Content/Imagenes/Cancha.png" alt="">
+                    </div>
+                    <div class="flex-item2">
+                        <div class="flex-item3">
+                            <b class="card-text">Predio:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tipo de suelo:</b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Techado: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Tiempo reserva: </b>
+                        </div>
+                        <div class="flex-item3">
+                            <b class="card-text">Nombre de la cancha:</b>
+                        </div>
+                    </div>
+                    @*<div class="flex-item1">Box 2</div>*@
+                </div>
+                <button type="button" class="btn btn-cancelar">Cancelar</button>
+                <button type="button" class="btn btn-editar">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="btn btn-create">
+    @Html.ActionLink("Agregar", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Predio.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Suelo.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Techado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImagenCancha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TiempoReserva)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Predio.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Suelo.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Techado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImagenCancha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TiempoReserva)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCancha }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCancha }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCancha })
-        </td>
-    </tr>
-}
-
-</table>

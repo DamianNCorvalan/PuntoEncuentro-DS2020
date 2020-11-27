@@ -233,10 +233,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\brands.css" />
     <Content Include="Content\brands.min.css" />
+    <Content Include="Content\cancha.css" />
     <Content Include="Content\fontawesome-all.css" />
     <Content Include="Content\fontawesome-all.min.css" />
     <Content Include="Content\fontawesome.css" />
     <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\Imagenes\cancha.css" />
+    <Content Include="Content\Imagenes\Cancha.png" />
     <Content Include="Content\Imagenes\pfutbol.png" />
     <Content Include="Content\LICENSE.txt" />
     <Content Include="Content\regular.css" />

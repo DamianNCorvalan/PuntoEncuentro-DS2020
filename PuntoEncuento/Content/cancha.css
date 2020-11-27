@@ -1,0 +1,74 @@
+﻿.card {
+    background-color: #C4C4C4;
+    width: 450px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.8;
+    margin-bottom: 50px;
+    /* margin-left: 10px; */
+    border: 1px solid rgba(66,0,255,1);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+img {
+    width: 173px;
+    height: 76px;
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    /* position: absolute;
+  top: 14px;
+  left: 21px; */
+    border: 1px solid rgba(66,0,255,1);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* CONFIGURACION PARA LOS 8 BOTONES CANCELAR Y EDITAR */
+
+.btn-cancelar {
+    color: #FFFFFF;
+    background-color: #D02A2A;
+    border-color: #4200FF;
+    /* border-radius: 0.25rem; */
+}
+
+.btn-cancelar:hover {
+        background-color: #5802C9;
+
+}
+
+.btn-editar {
+    color: #FFFFFF;
+    background-color: #37F6F6;
+    border-color: #4200FF;
+}
+
+.btn-editar:hover {
+    background-color: #5802C9;
+
+}
+
+.btn-create {
+    text-align: end;
+    color: #FFFFFF;
+    background-color: #06CC49;
+    border-color: #4200FF;
+}
+
+.btn-create:hover {
+    background-color: #5802C9;
+}
